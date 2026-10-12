@@ -1,0 +1,264 @@
+{
+  "project": "Rare Emotion Detection",
+  "generated_at": "2026-10-08T13:57:53.999521+00:00",
+  "core_dataset": {
+    "split_files": {
+      "train": {
+        "exists": true,
+        "rows": 43410,
+        "expected_rows": 43410,
+        "valid": true,
+        "bad_label_rows": 0,
+        "valid_vad_rows": 42291,
+        "vad_values_in_range": true,
+        "problems": []
+      },
+      "validation": {
+        "exists": true,
+        "rows": 5426,
+        "expected_rows": 5426,
+        "valid": true,
+        "bad_label_rows": 0,
+        "valid_vad_rows": 5263,
+        "vad_values_in_range": true,
+        "problems": []
+      },
+      "test": {
+        "exists": true,
+        "rows": 5427,
+        "expected_rows": 5427,
+        "valid": true,
+        "bad_label_rows": 0,
+        "valid_vad_rows": 5276,
+        "vad_values_in_range": true,
+        "problems": []
+      }
+    },
+    "multi_hot_representation": {
+      "valid": true,
+      "rows_checked": 54263,
+      "invalid_rows": 0,
+      "multi_label_rows": 8817,
+      "rows_by_split": {
+        "train": 43410,
+        "validation": 5426,
+        "test": 5427
+      },
+      "multi_label_rows_by_split": {
+        "train": 7102,
+        "validation": 878,
+        "test": 837
+      },
+      "target_shape": [
+        28
+      ],
+      "target_values": [
+        0,
+        1
+      ]
+    },
+    "target_emotion_mapping": {
+      "grief": 16,
+      "pride": 21,
+      "relief": 23,
+      "nervousness": 19
+    },
+    "vad_target_files_exist": true,
+    "source_split_text_overlap": {
+      "train__validation": 98,
+      "train__test": 90,
+      "validation__test": 25
+    }
+  },
+  "condition_A": {
+    "status": "READY",
+    "blockers": []
+  },
+  "condition_B": {
+    "status": "READY-CONSTRUCTIBLE",
+    "blockers": [],
+    "data_status": "READY-CONSTRUCTIBLE",
+    "oversampling_validation": {
+      "train_only": true,
+      "validation_test_not_passed_to_constructor": true,
+      "target_counts_before": {
+        "grief": 77,
+        "pride": 111,
+        "relief": 153,
+        "nervousness": 164
+      },
+      "target_counts_after": {
+        "grief": 164,
+        "pride": 164,
+        "relief": 164,
+        "nervousness": 164
+      },
+      "expected_additions": {
+        "grief": 87,
+        "pride": 53,
+        "relief": 11,
+        "nervousness": 0
+      },
+      "actual_additions_by_emotion": {
+        "grief": 87,
+        "pride": 53,
+        "relief": 11,
+        "nervousness": 0
+      },
+      "added_rows": 151,
+      "expected_added_rows": 151,
+      "evaluation_text_overlap_from_additions": 0,
+      "no_synthetic_rows": true,
+      "binary_multihot_labels": true,
+      "valid": true
+    }
+  },
+  "condition_C": {
+    "status": "BLOCKED",
+    "blockers": [
+      "pride synthetic examples missing",
+      "nervousness synthetic examples missing"
+    ]
+  },
+  "condition_D": {
+    "status": "BLOCKED",
+    "blockers": [
+      "pride accepted synthetic examples missing",
+      "nervousness accepted synthetic examples missing"
+    ]
+  },
+  "synthetic_summary": {
+    "total": 30,
+    "by_emotion": {
+      "grief": 20,
+      "pride": 0,
+      "relief": 10,
+      "nervousness": 0
+    },
+    "accepted_by_emotion": {
+      "grief": 20,
+      "pride": 0,
+      "relief": 10,
+      "nervousness": 0
+    },
+    "rejected_by_emotion": {
+      "grief": 0,
+      "pride": 0,
+      "relief": 0,
+      "nervousness": 0
+    },
+    "acceptance_rate_by_emotion": {
+      "grief": 1.0,
+      "pride": null,
+      "relief": 1.0,
+      "nervousness": null
+    },
+    "accepted_total": 30,
+    "rejected_total": 0,
+    "overall_acceptance_rate": 1.0,
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "files": [
+      {
+        "file": "vad_filtered_candidates_40.csv",
+        "rows": 20,
+        "metadata_file": "vad_filtered_candidates_40.metadata.json",
+        "model": "gemini-3.8-flash",
+        "prompt_version": "rare-emotion-candidates-v1.0"
+      },
+      {
+        "file": "vad_filtered_candidates_batch2.csv",
+        "rows": 10,
+        "metadata_file": "vad_filtered_candidates_batch2.metadata.json",
+        "model": "gemini-3.8-flash",
+        "prompt_version": "rare-emotion-batch2-ambiguous-v1.0"
+      },
+      {
+        "file": "vad_filtered_candidates_completion.csv",
+        "rows": 0,
+        "metadata_file": "vad_filtered_candidates_completion.metadata.json",
+        "model": "gemini-3.8-flash",
+        "prompt_version": "rare-emotion-completion-v1.0"
+      }
+    ],
+    "integrity": {
+      "valid": true,
+      "problems": [],
+      "duplicate_normalized_text_count": 0,
+      "source_marker_valid": true,
+      "distance_recalculation_mismatches": 0,
+      "decision_rule_mismatches": 0,
+      "missing_candidate_files": []
+    }
+  },
+  "leakage": {
+    "synthetic_vs_synthetic_duplicate_count": 0,
+    "synthetic_vs_train": 0,
+    "synthetic_vs_validation": 0,
+    "synthetic_vs_test": 0,
+    "synthetic_leakage_zero": true,
+    "existing_source_split_text_overlap": {
+      "train__validation": 98,
+      "train__test": 90,
+      "validation__test": 25
+    }
+  },
+  "configuration_consistency": {
+    "status": "PASS",
+    "shared_resource_configuration": {
+      "model_name": "roberta-base",
+      "freeze_strategy": "last_2_layers",
+      "max_length": 128,
+      "batch_size": 1,
+      "gradient_accumulation_steps": 4,
+      "learning_rate": 2e-05,
+      "weight_decay": 0.01,
+      "warmup_ratio": 0.1,
+      "lambda_vad": 0.5,
+      "classification_threshold": 0.5,
+      "seed": 20261008
+    },
+    "selected_loss_formulation": {
+      "classification_loss": "BCEWithLogitsLoss",
+      "target_encoding": "multi_hot",
+      "classification_threshold": 0.5,
+      "vad_loss": "masked_MSE",
+      "lambda_vad": 0.5,
+      "class_weighting": false
+    },
+    "gold_only_epochs": 1,
+    "gold_only_epoch_source": "gold_only_baseline.json; model_resource_efficient.json does not define epochs",
+    "conditions_intended_to_share_settings": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "only_intended_difference": "training data",
+    "mismatches": {},
+    "all_conditions_have_runners": {
+      "A": true,
+      "B": false,
+      "C": false,
+      "D": false
+    }
+  },
+  "experiment_execution_status": "READY",
+  "experiment_execution_blockers": [],
+  "c_vs_d_difference": false,
+  "c_vs_d_diagnostic": {
+    "different": false,
+    "status": "NOT YET DEMONSTRATED",
+    "explanation": "Current generated candidates do not contain rejected examples, so the unfiltered and VAD-filtered synthetic conditions would currently be identical for the available synthetic data."
+  },
+  "overall_status": "BLOCKED",
+  "overall_blockers": [
+    "Condition C is blocked",
+    "Condition D is blocked"
+  ],
+  "next_required_action": "Obtain genuine synthetic examples for missing target emotions and naturally occurring VAD-rejected candidates before constructing C/D.",
+  "training_performed": false,
+  "synthetic_generation_performed": false,
+  "synthetic_files_modified": false
+}

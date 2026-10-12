@@ -1,0 +1,32 @@
+{
+  "condition": "CONDITION A - GOLD ONLY",
+  "condition_definition": {
+    "training_data": "Original GoEmotions training split only",
+    "oversampling": false,
+    "synthetic_data": false,
+    "model": "Joint RoBERTa emotion classification and NRC-VAD V1 lexicon-derived pseudo-target regression",
+    "validation_split": "Original GoEmotions validation split",
+    "test_split": "Original GoEmotions test split"
+  },
+  "model_name": "roberta-base",
+  "num_labels": 28,
+  "max_length": 128,
+  "batch_size": 2,
+  "gradient_accumulation_steps": 4,
+  "epochs": 1,
+  "learning_rate": 0.00002,
+  "weight_decay": 0.01,
+  "warmup_ratio": 0.1,
+  "lambda_vad": 0.5,
+  "classification_threshold": 0.5,
+  "seed": 20261008,
+  "num_workers": 0,
+  "cpu_num_threads": 2,
+  "device": "cpu",
+  "optimizer": "AdamW",
+  "checkpoint_path": "models/gold_only_baseline/best_checkpoint.pt",
+  "metrics_path": "reports/gold_only_baseline/metrics.json",
+  "per_class_metrics_path": "reports/gold_only_baseline/per_class_metrics.json",
+  "rare_emotion_metrics_path": "reports/gold_only_baseline/rare_emotion_metrics.json",
+  "vad_target_interpretation": "NRC-VAD V1 (2018) lexicon-derived pseudo-targets; not human-annotated sentence-level VAD ground truth."
+}

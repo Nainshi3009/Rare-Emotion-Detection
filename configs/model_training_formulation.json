@@ -1,0 +1,8 @@
+{
+  "classification_loss": "BCEWithLogitsLoss",
+  "target_encoding": "multi_hot",
+  "classification_threshold": 0.5,
+  "vad_loss": "masked_MSE",
+  "lambda_vad": 0.5,
+  "class_weighting": false
+}

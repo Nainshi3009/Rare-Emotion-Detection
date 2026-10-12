@@ -1,0 +1,13 @@
+{
+  "model_name": "roberta-base",
+  "freeze_strategy": "last_2_layers",
+  "max_length": 128,
+  "batch_size": 1,
+  "gradient_accumulation_steps": 4,
+  "learning_rate": 0.00002,
+  "weight_decay": 0.01,
+  "warmup_ratio": 0.1,
+  "lambda_vad": 0.5,
+  "classification_threshold": 0.5,
+  "seed": 20261008
+}

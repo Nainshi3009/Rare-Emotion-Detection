@@ -1,0 +1,174 @@
+{
+  "status": "READY",
+  "condition": "CONDITION A - GOLD ONLY",
+  "freeze_strategy": "last_2_layers",
+  "trainable_parameters": 14199583,
+  "frozen_parameters": 109879296,
+  "percentage_trainable": 11.44399684655436,
+  "trainable_parameter_groups": {
+    "encoder.encoder.layer.10.attention.self.query": 590592,
+    "encoder.encoder.layer.10.attention.self.key": 590592,
+    "encoder.encoder.layer.10.attention.self.value": 590592,
+    "encoder.encoder.layer.10.attention.output.dense": 590592,
+    "encoder.encoder.layer.10.attention.output.LayerNorm": 1536,
+    "encoder.encoder.layer.10.intermediate.dense": 2362368,
+    "encoder.encoder.layer.10.output.dense": 2360064,
+    "encoder.encoder.layer.10.output.LayerNorm": 1536,
+    "encoder.encoder.layer.11.attention.self.query": 590592,
+    "encoder.encoder.layer.11.attention.self.key": 590592,
+    "encoder.encoder.layer.11.attention.self.value": 590592,
+    "encoder.encoder.layer.11.attention.output.dense": 590592,
+    "encoder.encoder.layer.11.attention.output.LayerNorm": 1536,
+    "encoder.encoder.layer.11.intermediate.dense": 2362368,
+    "encoder.encoder.layer.11.output.dense": 2360064,
+    "encoder.encoder.layer.11.output.LayerNorm": 1536,
+    "emotion_head": 21532,
+    "vad_head": 2307
+  },
+  "optimizer_trainable_only": true,
+  "optimizer_parameter_count": 14199583,
+  "optimizer_parameter_tensor_count": 36,
+  "optimizer": "AdamW",
+  "loss_formulation": "BCEWithLogitsLoss + 0.5 * masked VAD MSE",
+  "loss_verification": {
+    "finite": true,
+    "classification_loss": 0.7358008027076721,
+    "masked_vad_mse": 0.7500225901603699,
+    "joint_loss": 1.1108120679855347,
+    "lambda_vad": 0.5,
+    "class_weighting": false
+  },
+  "tensor_shapes": {
+    "input_ids": [
+      1,
+      128
+    ],
+    "multi_hot_targets": [
+      1,
+      28
+    ],
+    "emotion_logits": [
+      1,
+      28
+    ],
+    "vad_targets": [
+      1,
+      3
+    ],
+    "vad_predictions": [
+      1,
+      3
+    ],
+    "sigmoid_predictions": [
+      1,
+      28
+    ]
+  },
+  "evaluation": {
+    "activation": "sigmoid",
+    "threshold": 0.5,
+    "softmax_used": false
+  },
+  "training_configuration": {
+    "model_name": "roberta-base",
+    "max_length": 128,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 4,
+    "effective_batch_size": 4,
+    "epochs": 1,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "estimated_optimizer_steps": 10853,
+    "estimated_warmup_steps": 1085,
+    "seed": 20261008,
+    "device": "cpu",
+    "cuda_available": false
+  },
+  "dataset_integrity": {
+    "status": "PASS",
+    "splits": {
+      "train": {
+        "rows": 43410,
+        "expected_rows": 43410,
+        "valid": true,
+        "problems": []
+      },
+      "validation": {
+        "rows": 5426,
+        "expected_rows": 5426,
+        "valid": true,
+        "problems": []
+      },
+      "test": {
+        "rows": 5427,
+        "expected_rows": 5427,
+        "valid": true,
+        "problems": []
+      }
+    },
+    "train_examples": 43410,
+    "validation_examples": 5426,
+    "test_examples": 5427,
+    "tiny_gold_rows_loaded": 1,
+    "tiny_vad_valid_rows": 1
+  },
+  "checkpoint_safety": {
+    "best_checkpoint_selected_by": "validation macro-F1",
+    "best_checkpoint_path": "outputs/experiments/A_gold_only/run-<UTC timestamp>/checkpoints/best_model.pt",
+    "final_model": "best validation checkpoint is reloaded and evaluated on test",
+    "resume_supported": false,
+    "unique_run_directory": true,
+    "refuses_existing_run_directory": true,
+    "tokenizer_saved_in_run_checkpoint_directory": true,
+    "source_hashes_checked_before_after": true
+  },
+  "output_directory": "outputs/experiments/A_gold_only/",
+  "protected_hash_verification": {
+    "unchanged": true,
+    "hashes_before": {
+      "Rare_Emotion_Detection_EDA.ipynb": "0b46a085d7ad5d1be37f5ad437a2cb69e00d228db04c05ab2821b82c82df319b",
+      "data/processed/goemotions_vad_v1/train.parquet": "730799d4b02cb1fe08d5d03d8882eab3e03676982ce1447e2963b4b1e97fe0d7",
+      "data/processed/goemotions_vad_v1/validation.parquet": "71ce41501bd2fd80c79e452c01762af4114224e282a7d4c1e81706a93d21cf1e",
+      "data/processed/goemotions_vad_v1/test.parquet": "1b4d6d5597f563fae05a27226bc5ba299f3278ee54c22aab5bc3e2b7c3870f57",
+      "data/processed/goemotions_vad_v1/metadata.json": "f648c7d30fecc22b2e609b4df7af0f99433482e5084ae233073b55a3db032371",
+      "data/synthetic/vad_filtered_candidates_40.csv": "5ad7da33f2c14e89b97f5c331fcb61e46c970f88c4daba1308ef017307f33d64",
+      "data/synthetic/vad_filtered_candidates_40.metadata.json": "7c6ee2f8f1d3ad2bed6ba36d094472edefd938f9e47f086f7b4a451dcaaff9f9",
+      "data/synthetic/vad_filtered_candidates_batch2.csv": "c1f6e61c8d533ecca41094d34dc4850f95681b0027bcf265bf3e95183099cb1c",
+      "data/synthetic/vad_filtered_candidates_batch2.metadata.json": "8d91640799abcb897bbc9f12f22a097b15a6232a3b7f75a033e631a3edf3f565",
+      "data/synthetic/vad_filtered_candidates_completion.csv": "b6b5944b9cc839f088f0ed48129ad0cde0ee0a00bda799992d5adbab8961cc29",
+      "data/synthetic/vad_filtered_candidates_completion.metadata.json": "44ec901ee902659615c49ec1ae0b8a47abb11ba02c8bf4dcbce79b0f8897e12f",
+      "configs/model_resource_efficient.json": "37f98884c77555f3e21fc02563d906e14a0bc42593eeea927f41ce9b83297ff0",
+      "configs/gold_only_baseline.json": "79eb09b8020b3d797ce023a858f279d611393f964522690b27aaab0b875dad94"
+    },
+    "hashes_after": {
+      "Rare_Emotion_Detection_EDA.ipynb": "0b46a085d7ad5d1be37f5ad437a2cb69e00d228db04c05ab2821b82c82df319b",
+      "data/processed/goemotions_vad_v1/train.parquet": "730799d4b02cb1fe08d5d03d8882eab3e03676982ce1447e2963b4b1e97fe0d7",
+      "data/processed/goemotions_vad_v1/validation.parquet": "71ce41501bd2fd80c79e452c01762af4114224e282a7d4c1e81706a93d21cf1e",
+      "data/processed/goemotions_vad_v1/test.parquet": "1b4d6d5597f563fae05a27226bc5ba299f3278ee54c22aab5bc3e2b7c3870f57",
+      "data/processed/goemotions_vad_v1/metadata.json": "f648c7d30fecc22b2e609b4df7af0f99433482e5084ae233073b55a3db032371",
+      "data/synthetic/vad_filtered_candidates_40.csv": "5ad7da33f2c14e89b97f5c331fcb61e46c970f88c4daba1308ef017307f33d64",
+      "data/synthetic/vad_filtered_candidates_40.metadata.json": "7c6ee2f8f1d3ad2bed6ba36d094472edefd938f9e47f086f7b4a451dcaaff9f9",
+      "data/synthetic/vad_filtered_candidates_batch2.csv": "c1f6e61c8d533ecca41094d34dc4850f95681b0027bcf265bf3e95183099cb1c",
+      "data/synthetic/vad_filtered_candidates_batch2.metadata.json": "8d91640799abcb897bbc9f12f22a097b15a6232a3b7f75a033e631a3edf3f565",
+      "data/synthetic/vad_filtered_candidates_completion.csv": "b6b5944b9cc839f088f0ed48129ad0cde0ee0a00bda799992d5adbab8961cc29",
+      "data/synthetic/vad_filtered_candidates_completion.metadata.json": "44ec901ee902659615c49ec1ae0b8a47abb11ba02c8bf4dcbce79b0f8897e12f",
+      "configs/model_resource_efficient.json": "37f98884c77555f3e21fc02563d906e14a0bc42593eeea927f41ce9b83297ff0",
+      "configs/gold_only_baseline.json": "79eb09b8020b3d797ce023a858f279d611393f964522690b27aaab0b875dad94"
+    }
+  },
+  "resume_behavior": "not supported; every run gets a unique UTC-stamped directory",
+  "backward_pass_performed": false,
+  "optimizer_step_performed": false,
+  "real_training_performed": false,
+  "gemini_api_calls": 0,
+  "blockers": [],
+  "audit_timestamp": "2026-10-08T13:58:02.656920+00:00",
+  "hardware": {
+    "python": "3.12.0",
+    "cpu": "Intel64 Family 6 Model 186 Stepping 3, GenuineIntel",
+    "logical_cpus": 12,
+    "ram_total_bytes": 8196866048,
+    "ram_available_bytes": 581308416
+  }
+}

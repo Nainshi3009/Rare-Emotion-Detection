@@ -1,0 +1,170 @@
+{
+  "benchmark": "RoBERTa Gold-only forward/loss throughput; resource estimate only",
+  "created_at": "2026-10-08T13:23:24.941174+00:00",
+  "model": {
+    "name": "roberta-base",
+    "revision": "e2da8e2f811d1448a5b465c236feacd80ffbac7b",
+    "freeze_strategy": "last_2_layers",
+    "total_parameters": 124078879,
+    "trainable_parameters": 14199583,
+    "trainable_percentage": 11.44399684655436
+  },
+  "data": {
+    "source": "Original GoEmotions train split with existing VAD pseudo-targets",
+    "train_rows": 43410,
+    "benchmark_rows": 2,
+    "max_length": 128,
+    "selected_rows_have_valid_vad": true
+  },
+  "loss": {
+    "classification": "unweighted BCEWithLogitsLoss on binary multi-hot targets",
+    "vad": "masked MSE on NRC-VAD V1 lexicon-derived pseudo-targets",
+    "lambda_vad": 0.5,
+    "joint": "BCEWithLogitsLoss + 0.5 * masked VAD MSE"
+  },
+  "device": "cpu",
+  "cuda_available": false,
+  "iterations_per_batch_size": 3,
+  "selected_experimental_configuration": {
+    "batch_size": 1,
+    "applies_to_conditions": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "gradient_accumulation_steps": 4,
+    "reason": "Batch size 1 had higher measured CPU throughput and is the selected resource-efficient configuration for all experimental conditions."
+  },
+  "tokenizer_initialization_seconds": 0.7162293000146747,
+  "model_initialization_seconds": 0.7938682000385597,
+  "batch_size_results": {
+    "2": {
+      "batch_size": 2,
+      "iterations": 3,
+      "iteration_seconds": [
+        3.834941199980676,
+        1.6666754999896511,
+        1.4962886000284925
+      ],
+      "first_forward_loss_seconds": 3.834941199980676,
+      "average_forward_loss_seconds": 2.3326350999996066,
+      "average_subsequent_forward_loss_seconds": 1.5814820500090718,
+      "examples_per_second": 0.8573994277974885,
+      "estimated_seconds": {
+        "1000": 1166.3175499998033,
+        "10000": 11663.175499998033,
+        "43410": 50629.84484549146
+      },
+      "losses": [
+        {
+          "total": 1.0587575435638428,
+          "bce": 0.7313017845153809,
+          "masked_vad_mse": 0.6549115777015686
+        },
+        {
+          "total": 1.0587575435638428,
+          "bce": 0.7313017845153809,
+          "masked_vad_mse": 0.6549115777015686
+        },
+        {
+          "total": 1.0587575435638428,
+          "bce": 0.7313017845153809,
+          "masked_vad_mse": 0.6549115777015686
+        }
+      ],
+      "input_shape": [
+        2,
+        128
+      ],
+      "target_shape": [
+        2,
+        28
+      ],
+      "vad_target_shape": [
+        2,
+        3
+      ]
+    },
+    "1": {
+      "batch_size": 1,
+      "iterations": 3,
+      "iteration_seconds": [
+        0.8551281000254676,
+        0.8508763000136241,
+        1.2417566999793053
+      ],
+      "first_forward_loss_seconds": 0.8551281000254676,
+      "average_forward_loss_seconds": 0.9825870333394656,
+      "average_subsequent_forward_loss_seconds": 1.0463164999964647,
+      "examples_per_second": 1.0177215514450195,
+      "estimated_seconds": {
+        "1000": 982.5870333394655,
+        "10000": 9825.870333394656,
+        "43410": 42654.1031172662
+      },
+      "losses": [
+        {
+          "total": 1.1108120679855347,
+          "bce": 0.7358008027076721,
+          "masked_vad_mse": 0.7500225901603699
+        },
+        {
+          "total": 1.1108120679855347,
+          "bce": 0.7358008027076721,
+          "masked_vad_mse": 0.7500225901603699
+        },
+        {
+          "total": 1.1108120679855347,
+          "bce": 0.7358008027076721,
+          "masked_vad_mse": 0.7500225901603699
+        }
+      ],
+      "input_shape": [
+        1,
+        128
+      ],
+      "target_shape": [
+        1,
+        28
+      ],
+      "vad_target_shape": [
+        1,
+        3
+      ]
+    }
+  },
+  "protected_hashes_unchanged": true,
+  "protected_hashes_before": {
+    "Rare_Emotion_Detection_EDA.ipynb": "0b46a085d7ad5d1be37f5ad437a2cb69e00d228db04c05ab2821b82c82df319b",
+    "data/processed/goemotions_vad_v1/train.parquet": "730799d4b02cb1fe08d5d03d8882eab3e03676982ce1447e2963b4b1e97fe0d7",
+    "data/processed/goemotions_vad_v1/validation.parquet": "71ce41501bd2fd80c79e452c01762af4114224e282a7d4c1e81706a93d21cf1e",
+    "data/processed/goemotions_vad_v1/test.parquet": "1b4d6d5597f563fae05a27226bc5ba299f3278ee54c22aab5bc3e2b7c3870f57",
+    "data/processed/goemotions_vad_v1/metadata.json": "f648c7d30fecc22b2e609b4df7af0f99433482e5084ae233073b55a3db032371",
+    "data/synthetic/vad_filtered_candidates_40.csv": "5ad7da33f2c14e89b97f5c331fcb61e46c970f88c4daba1308ef017307f33d64",
+    "data/synthetic/vad_filtered_candidates_40.metadata.json": "7c6ee2f8f1d3ad2bed6ba36d094472edefd938f9e47f086f7b4a451dcaaff9f9",
+    "data/synthetic/vad_filtered_candidates_batch2.csv": "c1f6e61c8d533ecca41094d34dc4850f95681b0027bcf265bf3e95183099cb1c",
+    "data/synthetic/vad_filtered_candidates_batch2.metadata.json": "8d91640799abcb897bbc9f12f22a097b15a6232a3b7f75a033e631a3edf3f565",
+    "configs/model_resource_efficient.json": "ff7b69ac8b858b554f430c55fca19e961061479a783574e03ae63c3f8635d29d",
+    "configs/gold_only_baseline.json": "79eb09b8020b3d797ce023a858f279d611393f964522690b27aaab0b875dad94"
+  },
+  "protected_hashes_after": {
+    "Rare_Emotion_Detection_EDA.ipynb": "0b46a085d7ad5d1be37f5ad437a2cb69e00d228db04c05ab2821b82c82df319b",
+    "data/processed/goemotions_vad_v1/train.parquet": "730799d4b02cb1fe08d5d03d8882eab3e03676982ce1447e2963b4b1e97fe0d7",
+    "data/processed/goemotions_vad_v1/validation.parquet": "71ce41501bd2fd80c79e452c01762af4114224e282a7d4c1e81706a93d21cf1e",
+    "data/processed/goemotions_vad_v1/test.parquet": "1b4d6d5597f563fae05a27226bc5ba299f3278ee54c22aab5bc3e2b7c3870f57",
+    "data/processed/goemotions_vad_v1/metadata.json": "f648c7d30fecc22b2e609b4df7af0f99433482e5084ae233073b55a3db032371",
+    "data/synthetic/vad_filtered_candidates_40.csv": "5ad7da33f2c14e89b97f5c331fcb61e46c970f88c4daba1308ef017307f33d64",
+    "data/synthetic/vad_filtered_candidates_40.metadata.json": "7c6ee2f8f1d3ad2bed6ba36d094472edefd938f9e47f086f7b4a451dcaaff9f9",
+    "data/synthetic/vad_filtered_candidates_batch2.csv": "c1f6e61c8d533ecca41094d34dc4850f95681b0027bcf265bf3e95183099cb1c",
+    "data/synthetic/vad_filtered_candidates_batch2.metadata.json": "8d91640799abcb897bbc9f12f22a097b15a6232a3b7f75a033e631a3edf3f565",
+    "configs/model_resource_efficient.json": "ff7b69ac8b858b554f430c55fca19e961061479a783574e03ae63c3f8635d29d",
+    "configs/gold_only_baseline.json": "79eb09b8020b3d797ce023a858f279d611393f964522690b27aaab0b875dad94"
+  },
+  "backward_pass_performed": false,
+  "optimizer_step_performed": false,
+  "checkpoint_saved": false,
+  "training_performed": false,
+  "gemini_api_calls": 0,
+  "interpretation": "Timing covers forward plus both losses in inference mode only. It excludes backward, optimizer work, tokenization of the full corpus, validation, and checkpoint I/O. Extrapolations are rough estimates, not results."
+}

@@ -1,0 +1,47 @@
+# Python virtual environment
+.venv/
+venv/
+
+# Local environment secrets
+.env
+.env.*
+!.env.example
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python distribution/build files
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+# Trained model weights and checkpoints
+models/
+outputs/
+
+# Generated datasets and experiment artifacts
+data/processed/
+data/interim/
+
+# Local experiment reports and temporary files
+*.pt
+*.pth
+*.ckpt
+dataa/
+Rare_Emotion_Detection_EDA.ipynb
+src/training_backup.py
+
+data/
