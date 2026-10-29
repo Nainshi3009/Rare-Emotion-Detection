@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-10-28T07:25:42.466758+00:00",
+  "experiment_mode": "fast_subsample",
+  "fast_run_params": {
+    "train_subsample_n": 4000,
+    "test_subsample_n": 1000,
+    "max_steps_per_condition": 150,
+    "epochs": 2,
+    "effective_batch_size": 16
+  },
+  "conditions": {
+    "A": {
+      "label": "Gold Only",
+      "dataset_sizes": {
+        "train": 4000,
+        "validation": 5426,
+        "test": 1000
+      },
+      "best_validation_macro_f1": 0.02428976431650975,
+      "test_macro_f1": 0.02360992755234554,
+      "test_weighted_f1": 0.023040206645542172,
+      "rare_target_f1": {
+        "grief": 0.0,
+        "pride": 0.031496062992125984,
+        "relief": 0.021760633036597428,
+        "nervousness": 0.0367816091954023
+      },
+      "vad_mae": {
+        "valence": 0.19697706401348114,
+        "arousal": 0.10610076040029526,
+        "dominance": 0.12770648300647736,
+        "valid_rows": 976
+      },
+      "training_runtime_seconds": 2874.7172947999934
+    },
+    "B": {
+      "label": "Standard Oversampling",
+      "dataset_sizes": {
+        "train": 4151,
+        "validation": 5426,
+        "test": 1000
+      },
+      "best_validation_macro_f1": 0.02378971871750404,
+      "test_macro_f1": 0.02357690311797529,
+      "test_weighted_f1": 0.023044254500858712,
+      "rare_target_f1": {
+        "grief": 0.0,
+        "pride": 0.031496062992125984,
+        "relief": 0.021760633036597428,
+        "nervousness": 0.036
+      },
+      "vad_mae": {
+        "valence": 0.17636770009994507,
+        "arousal": 0.10086823999881744,
+        "dominance": 0.12166095525026321,
+        "valid_rows": 976
+      },
+      "training_runtime_seconds": 2158.8586313999986
+    },
+    "C": {
+      "label": "Unfiltered Synthetic",
+      "dataset_sizes": {
+        "train": 4116,
+        "validation": 5426,
+        "test": 1000
+      },
+      "best_validation_macro_f1": 0.020185624837380987,
+      "test_macro_f1": 0.020514039963097943,
+      "test_weighted_f1": 0.030096023741419717,
+      "rare_target_f1": {
+        "grief": 0.0,
+        "pride": 0.0,
+        "relief": 0.019860973187686197,
+        "nervousness": 0.0
+      },
+      "vad_mae": {
+        "valence": 0.1497531235218048,
+        "arousal": 0.08879600465297699,
+        "dominance": 0.1193670928478241,
+        "valid_rows": 976
+      },
+      "training_runtime_seconds": 1774.519884399997
+    },
+    "D": {
+      "label": "VAD-Filtered Synthetic",
+      "dataset_sizes": {
+        "train": 4116,
+        "validation": 5426,
+        "test": 1000
+      },
+      "best_validation_macro_f1": 0.020185624837380987,
+      "test_macro_f1": 0.020514039963097943,
+      "test_weighted_f1": 0.030096023741419717,
+      "rare_target_f1": {
+        "grief": 0.0,
+        "pride": 0.0,
+        "relief": 0.019860973187686197,
+        "nervousness": 0.0
+      },
+      "vad_mae": {
+        "valence": 0.1497531235218048,
+        "arousal": 0.08879600465297699,
+        "dominance": 0.1193670928478241,
+        "valid_rows": 976
+      },
+      "training_runtime_seconds": 1969.7088497000077
+    }
+  },
+  "note": "VAD targets are NRC-VAD V1 lexicon-derived pseudo-targets, not human-annotated sentence-level VAD ground truth."
+}
