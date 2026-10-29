@@ -1,0 +1,130 @@
+{
+  "A": {
+    "condition_tag": "A",
+    "folder": "A_gold_only",
+    "macro_ece": 0.4376975296107786,
+    "macro_brier": 0.23534723555485454,
+    "macro_f1_threshold_05": 0.021828128730139323,
+    "macro_f1_threshold_tuned": 0.07311322924292976,
+    "rare_ece": {
+      "grief": 0.4451375901699066,
+      "pride": 0.55028235912323,
+      "relief": 0.5265092253684998,
+      "nervousness": 0.49608980846405026
+    },
+    "rare_f1_threshold_05": {
+      "grief": 0.0,
+      "pride": 0.003992015968063872,
+      "relief": 0.011928429423459244,
+      "nervousness": 0.005063291139240506
+    },
+    "rare_f1_threshold_tuned": {
+      "grief": 0.010362694300518135,
+      "pride": 0.005194805194805195,
+      "relief": 0.004830917874396135,
+      "nervousness": 0.006006006006006006
+    },
+    "tuned_thresholds_for_rare": {
+      "grief": 0.45,
+      "pride": 0.55,
+      "relief": 0.53,
+      "nervousness": 0.49
+    }
+  },
+  "B": {
+    "condition_tag": "B",
+    "folder": "B_standard_oversampling",
+    "macro_ece": 0.437062081908541,
+    "macro_brier": 0.2347664437828531,
+    "macro_f1_threshold_05": 0.02157462409863126,
+    "macro_f1_threshold_tuned": 0.07421684763024818,
+    "rare_ece": {
+      "grief": 0.44588348269462585,
+      "pride": 0.5504582524299622,
+      "relief": 0.5257099270820618,
+      "nervousness": 0.496682410299778
+    },
+    "rare_f1_threshold_05": {
+      "grief": 0.0,
+      "pride": 0.003992015968063872,
+      "relief": 0.011928429423459244,
+      "nervousness": 0.004454342984409799
+    },
+    "rare_f1_threshold_tuned": {
+      "grief": 0.00881057268722467,
+      "pride": 0.005242463958060288,
+      "relief": 0.005517241379310344,
+      "nervousness": 0.005994005994005994
+    },
+    "tuned_thresholds_for_rare": {
+      "grief": 0.45,
+      "pride": 0.55,
+      "relief": 0.53,
+      "nervousness": 0.49
+    }
+  },
+  "C": {
+    "condition_tag": "C",
+    "folder": "C_unfiltered_synthetic",
+    "macro_ece": 0.41332873366986,
+    "macro_brier": 0.21301728866895803,
+    "macro_f1_threshold_05": 0.019613793070832847,
+    "macro_f1_threshold_tuned": 0.06599879308332707,
+    "rare_ece": {
+      "grief": 0.43010926246643066,
+      "pride": 0.43867745995521545,
+      "relief": 0.5051429827809334,
+      "nervousness": 0.3845042937994003
+    },
+    "rare_f1_threshold_05": {
+      "grief": 0.0,
+      "pride": 0.0,
+      "relief": 0.012,
+      "nervousness": 0.0
+    },
+    "rare_f1_threshold_tuned": {
+      "grief": 0.0,
+      "pride": 0.0,
+      "relief": 0.006557377049180328,
+      "nervousness": 0.00398406374501992
+    },
+    "tuned_thresholds_for_rare": {
+      "grief": 0.44,
+      "pride": 0.45,
+      "relief": 0.51,
+      "nervousness": 0.39
+    }
+  },
+  "D": {
+    "condition_tag": "D",
+    "folder": "D_vad-filtered_synthetic",
+    "macro_ece": 0.41332873366986,
+    "macro_brier": 0.21301728866895803,
+    "macro_f1_threshold_05": 0.019613793070832847,
+    "macro_f1_threshold_tuned": 0.06599879308332707,
+    "rare_ece": {
+      "grief": 0.43010926246643066,
+      "pride": 0.43867745995521545,
+      "relief": 0.5051429827809334,
+      "nervousness": 0.3845042937994003
+    },
+    "rare_f1_threshold_05": {
+      "grief": 0.0,
+      "pride": 0.0,
+      "relief": 0.012,
+      "nervousness": 0.0
+    },
+    "rare_f1_threshold_tuned": {
+      "grief": 0.0,
+      "pride": 0.0,
+      "relief": 0.006557377049180328,
+      "nervousness": 0.00398406374501992
+    },
+    "tuned_thresholds_for_rare": {
+      "grief": 0.44,
+      "pride": 0.45,
+      "relief": 0.51,
+      "nervousness": 0.39
+    }
+  }
+}
